@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>打开微信读书</title>
+</head>
+<body style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;text-align:center;padding:50px 20px;background:#f5f5f7;color:#333;">
+  <div style="font-size:44px;">📖</div>
+  <h2 style="margin:12px 0 4px;">正在打开微信读书…</h2>
+  <p style="color:#888;font-size:14px;margin:0 0 24px;">如果几秒内没有自动跳转，请点下面的按钮</p>
+  <a id="openBtn" href="#" style="display:inline-block;padding:14px 32px;background:#07c160;color:#fff;border-radius:10px;text-decoration:none;font-size:17px;font-weight:600;">打开微信读书 App</a>
+  <script>
+    (function(){
+      var q = window.location.search ? window.location.search.slice(1) : '';
+      var scheme = 'weread://bestbookmark' + (q ? '?' + q : '');
+      var btn = document.getElementById('openBtn');
+      if (btn) btn.setAttribute('href', scheme);
+      setTimeout(function(){ window.location.href = scheme; }, 500);
+    })();
+  </script>
+</body>
+</html>
